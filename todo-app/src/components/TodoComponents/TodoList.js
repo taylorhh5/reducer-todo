@@ -1,20 +1,26 @@
 
-import { initialState, todoReducer } from "../../Reducers/todoReducer.js"
-
+import { initialState, todoReducer } from "../../Reducers/todoReducer.js";
+import './Todo.css';
 import React, { useState, useReducer } from 'react';
 
 const TodoList = (props) => {
-    const [state, dispatch] = useReducer(todoReducer, initialState);
+    // const [state, dispatch] = useReducer(todoReducer, initialState);
 
 
 
     return (
-        <div>
-           Todo List:
+
+
+
+        <div onClick={() => props.dispatch({ type: "TOGGLE_TODO", payload: props.id })}
+            className={props.completed ? "complete" : ""}>
+
+            Todo List:
             
-                 <div> {props.item} </div>
-          
-        </div>
+            {props.item} </div>
+
+
+
     )
 
 }

@@ -13,7 +13,7 @@ function App () {
         {/* <TodoForm addTodo={this.addTodo} filterTodos={this.filterCompleted}/> */}
         <h2>Welcome to your Todo App!</h2>
         <TodoForm/>
-        <TodoList/>
+        
         
         {/* <TodoList todos={this.state.todos}
         toggleCompleted={this.toggleCompleted}/> */}

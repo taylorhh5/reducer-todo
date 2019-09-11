@@ -18,6 +18,13 @@ const TodoForm = () => {
         setTodo("");
         console.log(state)
     }
+    const completed = event => {
+        event.preventDefault();
+        dispatch({ type: "NOW_COMPLETED" });
+
+    }
+
+
 
     return (
         <div>
@@ -25,12 +32,15 @@ const TodoForm = () => {
                 <input type="text" name="newtodo" placeholder="Add" onChange={handleChange} value={todo} />
                 <button type="submit">Add new</button>
 
-                {/* <button onClick= {this.props.filterTodos}>Clear Complete</button> */}
+                <button onClick={completed}>Clear Complete</button>
 
             </form>
-            {state.todos.map(item => (
+            {state.list.map(newitem => (
                 <TodoList
-                    item={item.item}
+                    dispatch={dispatch}
+                    item={newitem.item}
+                    completed={newitem.completed}
+                    id={newitem.id}
                 />
             ))
             }
